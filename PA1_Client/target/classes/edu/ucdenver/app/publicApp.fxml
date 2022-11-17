@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucdenver.app.PublicController">
+   <children>
+      <TabPane prefHeight="401.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab text="Welcome">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+          <Tab fx:id="tabListUpcoming" onSelectionChanged="#upcomingMatchesUpdate" text="Upcoming Matches">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="upcomingMatches" layoutX="67.0" layoutY="132.0" prefHeight="223.0" prefWidth="484.0" />
+                        <Label layoutX="203.0" layoutY="38.0" text="View Upcoming matches" />
+                        <Label layoutX="84.0" layoutY="109.0" text="Date" />
+                        <Label layoutX="203.0" layoutY="109.0" text="Team A" />
+                        <Label layoutX="334.0" layoutY="109.0" text="Team B" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabListOfMatches" text="List of Matches">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="32.0" layoutY="26.0" text="Choose a Date:" />
+                        <DatePicker fx:id="dtFindMatches" layoutX="166.0" layoutY="22.0" onAction="#getMatchesOnDate" prefHeight="26.0" prefWidth="158.0" />
+                        <ListView fx:id="dateListMatches" layoutX="53.0" layoutY="131.0" prefHeight="200.0" prefWidth="495.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabTeamGames" text="All Games for a Team">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="50.0" layoutY="40.0" text="Enter a team name:" />
+                        <TextField fx:id="allGamesTeamName" layoutX="194.0" layoutY="36.0" />
+                        <Label layoutX="194.0" layoutY="19.0" text="Capatilazation Matters*" />
+                        <ListView fx:id="gamesForTeam" layoutX="32.0" layoutY="124.0" prefHeight="200.0" prefWidth="529.0" />
+                        <Button layoutX="194.0" layoutY="73.0" mnemonicParsing="false" onAction="#teamGames" prefHeight="25.0" prefWidth="149.0" text="Find Matches" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabLineups" onSelectionChanged="#updateMatchDDL" text="Match Lineups">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="126.0" layoutY="35.0" text="Choose a Match:" />
+                        <Label layoutX="150.0" layoutY="96.0" text="Team A" />
+                        <Label layoutX="429.0" layoutY="96.0" text="Team B" />
+                        <ListView fx:id="listALineups" layoutX="70.0" layoutY="112.0" prefHeight="224.0" prefWidth="200.0" />
+                        <ListView fx:id="listBLineups" layoutX="349.0" layoutY="114.0" prefHeight="221.0" prefWidth="200.0" />
+                        <ComboBox fx:id="ddlMatchLineups" layoutX="228.0" layoutY="31.0" onAction="#teamLineups" prefHeight="25.0" prefWidth="242.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

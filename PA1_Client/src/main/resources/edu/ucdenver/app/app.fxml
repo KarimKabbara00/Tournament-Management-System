@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox prefHeight="696.0" prefWidth="910.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ucdenver.app.AdminController">
+    <children>
+        <TabPane fx:id="tabPane" prefHeight="702.0" prefWidth="923.0" tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+                <Tab fx:id="newTournamentTab" text="Create Tournament">
+                    <content>
+                        <AnchorPane fx:id="createTournamentTab" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="32.0" layoutY="20.0" prefHeight="218.0" prefWidth="430.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="59.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="84.0" minHeight="2.0" prefHeight="2.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="65.0" minHeight="4.0" prefHeight="64.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button fx:id="btnCreateTournament" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#createTournament" prefHeight="26.0" prefWidth="256.0" text="Generate Tournament" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <Label text="Tournament Name" />
+                                        <TextField fx:id="txtTournamentName" prefHeight="39.0" prefWidth="245.0" GridPane.columnIndex="1" />
+                                        <Label text="Tournament Start" GridPane.rowIndex="2" />
+                                        <Label text="Tournament End:" GridPane.rowIndex="3" />
+                                        <DatePicker fx:id="dtTournamentStart" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <DatePicker fx:id="dtTournamentEnd" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Line endX="329.29290771484375" endY="0.2928932309150696" startX="-100.0" translateY="-25.0" GridPane.rowIndex="1" />
+                                    </children>
+                                </GridPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="addCountryTab" onSelectionChanged="#countryTabUpdateList" text="Add Participating country">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="31.0" layoutY="90.0" prefHeight="161.0" prefWidth="323.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <TextField fx:id="txtCountryName" GridPane.columnIndex="1" />
+                                        <Label text="Country Name" />
+                                        <Button fx:id="btnAddCountry" mnemonicParsing="false" onAction="#addCountryName" text="Add Country" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    </children>
+                                </GridPane>
+                        <ListView fx:id="listOfParticipatingCountries" layoutX="590.0" layoutY="86.0" prefHeight="543.0" prefWidth="286.0" />
+                        <Label layoutX="671.0" layoutY="31.0" prefHeight="17.0" prefWidth="124.0" text="Participating Countries" />
+                            </children>
+                     <effect>
+                        <Blend />
+                     </effect>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="addTeamTab" onSelectionChanged="#teamTabUpdateList" text="Add Participating Team">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="369.0" prefWidth="643.0">
+                            <children>
+                                <GridPane layoutX="61.0" layoutY="86.0" prefHeight="241.0" prefWidth="446.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Team Name" GridPane.rowIndex="1" />
+                                        <Label text="Team Country" />
+                                        <TextField fx:id="txtTeamName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Button mnemonicParsing="false" onAction="#addTeam" text="Add Team" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="ddlCountries" onAction="#updateTeamCountries" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    </children>
+                                </GridPane>
+                        <ListView fx:id="listOfTeamsInCountry" layoutX="596.0" layoutY="86.0" prefHeight="543.0" prefWidth="286.0" />
+                        <Label alignment="CENTER" layoutX="670.0" layoutY="39.0" prefHeight="17.0" prefWidth="124.0" text="Team Countries" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="addPlayersTab" onSelectionChanged="#playersTabUpdateCountries" text="Add Players">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="640.0">
+                            <children>
+                                <GridPane layoutX="28.0" layoutY="87.0" prefHeight="247.0" prefWidth="436.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="53.0" minHeight="3.0" prefHeight="43.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="62.0" minHeight="0.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="62.0" minHeight="0.0" prefHeight="50.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="32.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#addPlayers" text="Add Player" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                        <Label text="Team Name" GridPane.rowIndex="1" />
+                                        <Label text="Player Name" GridPane.rowIndex="2" />
+                                        <Label text="Age" GridPane.rowIndex="3" />
+                                        <Label text="Weight" GridPane.rowIndex="4" />
+                                        <TextField fx:id="txtPlayerName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <TextField fx:id="txtPlayerAge" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <TextField fx:id="txtPlayerWeight" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                        <ComboBox fx:id="ddlAPTeamName" onAction="#updateCurrentPlayers" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Height" GridPane.rowIndex="5" />
+                                        <TextField fx:id="txtPlayerHeight" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Country Name" />
+                              <ComboBox fx:id="ddlAPCountryName" onAction="#updateTeamsForCountry" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    </children>
+                                </GridPane>
+                        <ListView fx:id="listOfCurrentPlayers" layoutX="601.0" layoutY="95.0" prefHeight="540.0" prefWidth="277.0" />
+                        <Label layoutX="703.0" layoutY="52.0" text="Current Players:" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="addRefereeTab" onSelectionChanged="#refereeTabUpdateCountries" text="Add Referee">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="39.0" layoutY="32.0" prefHeight="195.0" prefWidth="360.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="183.0" minWidth="10.0" prefWidth="183.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="177.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Button mnemonicParsing="false" onAction="#addReferee" text="Add Referee" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                        <Label text="Referee Name" GridPane.rowIndex="2" />
+                                        <Label text="Representing Country" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtRefereeName" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="ddlCountriesAR" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    </children>
+                                </GridPane>
+                        <ListView fx:id="refereeListView" layoutX="492.0" layoutY="88.0" prefHeight="518.0" prefWidth="365.0" />
+                        <Label layoutX="644.0" layoutY="58.0" text="Referee List" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="createMatchTab" onSelectionChanged="#createMatchUpdateList" text="Create Match">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="71.0" layoutY="5.0" prefHeight="219.0" prefWidth="456.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="182.0" minWidth="10.0" prefWidth="88.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="140.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="147.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Date of Match" GridPane.rowIndex="1" />
+                                        <Label text="Team A:" GridPane.rowIndex="3" />
+                                        <Label text="Team B:" GridPane.rowIndex="4" />
+                                        <Button fx:id="btnCreateMatch" mnemonicParsing="false" onAction="#createMatch" text="Create Match" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                        <DatePicker fx:id="dtMatchDate" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtMatchTime" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Time of Match:" GridPane.rowIndex="2" />
+                              <Label text="* (Format: hh:mm)" translateX="10.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                              <ComboBox fx:id="ddlTeamA" prefHeight="25.0" prefWidth="170.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="ddlTeamB" prefHeight="25.0" prefWidth="178.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    </children>
+                                </GridPane>
+                        <ListView fx:id="matchesList" layoutX="340.0" layoutY="320.0" prefHeight="280.0" prefWidth="533.0" />
+                        <Label layoutX="570.0" layoutY="282.0" text="Match Lineup" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="lineupTab" onSelectionChanged="#updateMatchListForLineUp" text="Set LineUp">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="77.0" layoutY="84.0" prefHeight="299.0" prefWidth="382.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Match" />
+                                        <Label text="Team:" GridPane.rowIndex="1" />
+                                        <Label text="Players" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="ddlPlayerList" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" onAction="#addPlayerToLineup" text="Add Player to lineup" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ComboBox fx:id="ddlTeamList" onAction="#updateCurrentLineup" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <ComboBox fx:id="ddlMatchesSLU" onAction="#updateTeamsForMatchSelected" prefWidth="150.0" GridPane.columnIndex="1" />
+                                    </children>
+                                </GridPane>
+                                <ListView fx:id="lvLineupPreview" layoutX="569.0" layoutY="85.0" prefHeight="545.0" prefWidth="300.0" />
+                        <Label layoutX="675.0" layoutY="54.0" text="Current Line-Up:" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="addRefereeToMatchTab" onSelectionChanged="#updateMatchAndRefereeList" text="Add Referee to Match">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="341.0" prefWidth="599.0">
+                            <children>
+                                <GridPane layoutX="32.0" layoutY="22.0" prefHeight="161.0" prefWidth="297.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Referee:" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="ddlRefereeList" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <ComboBox fx:id="ddlMatchesARTM" onAction="#getRefereesOnMatch" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <Label text="Match:" GridPane.rowIndex="1" />
+                                        <Button mnemonicParsing="false" onAction="#addRefereeToMatch" prefHeight="25.0" prefWidth="151.0" text="Add Referee to Match" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    </children>
+                                </GridPane>
+                        <Label layoutX="598.0" layoutY="31.0" text="Current Referees" />
+                        <ListView fx:id="listOfRefereeOnMatch" layoutX="506.0" layoutY="58.0" prefHeight="200.0" prefWidth="276.0" />
+                        <Label fx:id="refereesNeeded" alignment="CENTER" layoutX="523.0" layoutY="280.0" prefHeight="17.0" prefWidth="240.0" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="recordScoreTab" onSelectionChanged="#updateMatchesAndListRecordScore" text="Record Score">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <GridPane layoutX="56.0" layoutY="56.0" prefHeight="250.0" prefWidth="576.0">
+                                    <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="146.20001220703125" minWidth="10.0" prefWidth="144.20001220703125" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="139.99998779296874" minWidth="10.0" prefWidth="139.99998779296874" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="143.0" minWidth="10.0" prefWidth="133.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints maxHeight="52.80000305175781" minHeight="10.0" prefHeight="52.80000305175781" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="189.99998474121094" minHeight="10.0" prefHeight="58.39999694824219" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="176.8000030517578" minHeight="10.0" prefHeight="53.00003356933594" vgrow="SOMETIMES" />
+                              <RowConstraints maxHeight="176.8000030517578" minHeight="10.0" prefHeight="99.39996643066408" vgrow="SOMETIMES" />
+                                    </rowConstraints>
+                                    <children>
+                                        <Label text="Match:" />
+                                        <ComboBox fx:id="ddlMatchesRS" prefWidth="150.0" GridPane.columnIndex="1" />
+                                        <Label text="Score for Team A:" GridPane.rowIndex="1" />
+                                        <Label text="Score for Team B:" translateX="10.0" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                                        <TextField fx:id="txtTAScore" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                        <TextField fx:id="txtTBScore" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                        <Button mnemonicParsing="false" onAction="#recordScore" text="Record Score" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    </children>
+                                </GridPane>
+                        <ListView fx:id="recordedScoresList" layoutX="409.0" layoutY="66.0" prefHeight="480.0" prefWidth="479.0" />
+                        <Label layoutX="613.0" layoutY="47.0" text="Match Scores" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</VBox>
