@@ -94,5 +94,5 @@ the lineups for each match, and the score.*
 
     When a user wants to use the application, they must first run the Server Runnable. 
     Once the server interface has opened, the user can select to load from a file or start
-    the Server, once the server is started then the user may open start either the Admin  
-    or Public applications.
+    the Server, once the server is started then the user may start either the Admin  
+    or Public application.
