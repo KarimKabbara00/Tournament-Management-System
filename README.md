@@ -1,7 +1,7 @@
-# Fifa Worldcup Qatar 2022
+# Tournament Management System
 ### Main Contributors: 
 #### Karim Kabbara / David Desrochers
-*This app is designed to create Tournaments and their games, as well as the teams,
+*This app is designed to create soccer Tournaments and their games, as well as the teams,
 the lineups for each match, and the score.*
 <hr>
 
