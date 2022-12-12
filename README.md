@@ -1,9 +1,18 @@
-# Tournament Management System
+# Fifa Worldcup Qatar 2022
 ### Main Contributors: 
 #### Karim Kabbara / David Desrochers
-*This app is designed to create soccer Tournaments and their games, as well as the teams,
+*This app is designed to create Tournaments and their games, as well as the teams,
 the lineups for each match, and the score.*
 <hr>
+
+#### Application Startup
+
+    When a user wants to use the application, they must first run the Server Runnable. 
+    Once the server CLI has opened, the user must first start the server. Once the server
+    is started, the user may load a file. Then the user can start either the Admin or 
+    Public applications. After creating and modifying a tournament, the user must shut down
+    the server before saving the tournament object to a file.
+
 
 ### Included Software
 ##### Admin Application
@@ -66,6 +75,7 @@ the lineups for each match, and the score.*
     the user to update. Once the score is recorded, it is validated and checked for errors, then
     stored.
         *Status: Fully Functional - no known bugs
+
 ##### Public Application
 
     Get Upcoming Matches: The user can view the list of upcoming matches from
@@ -88,11 +98,3 @@ the lineups for each match, and the score.*
     This is a viewable interface, the user selects a match from a list which is already
     validated, there shouldn't be any errors.
         *Status: Fully Functional - no known bugs
-
-
-#### Application Startup
-
-    When a user wants to use the application, they must first run the Server Runnable. 
-    Once the server interface has opened, the user can select to load from a file or start
-    the Server, once the server is started then the user may start either the Admin  
-    or Public application.
