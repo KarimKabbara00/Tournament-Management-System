@@ -40,9 +40,9 @@ the lineups for each match, and the score.*
         *Status: Fully Functional - no known bugs
 
     Add Players: The user adds players to the created team, The user selects the country first 
-    then the user can select a team, once selected the user enters the Player name, age, height and weight
-    once done, it is validated to make sure no duplicates are added, then it is sent to the server
-    and then it is error checked, if it passes the player is added to the team.
+    then the user can select a team, once selected the user enters the Player name, age, height and
+    weight once done, it is validated to make sure no duplicates are added, then it is sent to the 
+    server and then it is error checked, if it passes the player is added to the team.
         *Status: Fully Functional - no known bugs
 
     Add Referee: The user chooses a country from the list, then the user should
